@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A145EC7D1AA19030004CCD78 /* HKAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A145EC7C1AA19030004CCD78 /* HKAPI.m */; };
+		A145EC861AA1963B004CCD78 /* HKArchivingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A145EC851AA1963B004CCD78 /* HKArchivingDataModel.m */; };
+		A145EC8A1AA19CD4004CCD78 /* HKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A145EC891AA19CD4004CCD78 /* HKModel.m */; };
 		A16539AC1A8E377E00314E60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A16539AB1A8E377E00314E60 /* main.m */; };
 		A16539AF1A8E377E00314E60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A16539AE1A8E377E00314E60 /* AppDelegate.m */; };
 		A16539B51A8E377E00314E60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16539B31A8E377E00314E60 /* Main.storyboard */; };
 		A16539B71A8E377E00314E60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16539B61A8E377E00314E60 /* Images.xcassets */; };
 		A16539BA1A8E377E00314E60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16539B81A8E377E00314E60 /* LaunchScreen.xib */; };
 		A16539C61A8E377E00314E60 /* HairKingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A16539C51A8E377E00314E60 /* HairKingTests.m */; };
-		A16539E71A8E423700314E60 /* BootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16539E61A8E423700314E60 /* BootViewController.m */; };
+		A1710AA51AA3107D00CD0637 /* HKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1710AA41AA3107D00CD0637 /* HKRootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A145EC7B1AA19030004CCD78 /* HKAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKAPI.h; sourceTree = "<group>"; };
+		A145EC7C1AA19030004CCD78 /* HKAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKAPI.m; sourceTree = "<group>"; };
+		A145EC821AA1957C004CCD78 /* HKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDefines.h; sourceTree = "<group>"; };
+		A145EC831AA195A9004CCD78 /* HKAPIDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKAPIDefines.h; sourceTree = "<group>"; };
+		A145EC841AA1963B004CCD78 /* HKArchivingDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKArchivingDataModel.h; sourceTree = "<group>"; };
+		A145EC851AA1963B004CCD78 /* HKArchivingDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKArchivingDataModel.m; sourceTree = "<group>"; };
+		A145EC871AA196B0004CCD78 /* HKModelDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKModelDefines.h; sourceTree = "<group>"; };
+		A145EC881AA19CD4004CCD78 /* HKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKModel.h; sourceTree = "<group>"; };
+		A145EC891AA19CD4004CCD78 /* HKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKModel.m; sourceTree = "<group>"; };
 		A16539A61A8E377E00314E60 /* HairKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HairKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16539AA1A8E377E00314E60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16539AB1A8E377E00314E60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,10 +50,8 @@
 		A16539BF1A8E377E00314E60 /* HairKingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HairKingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16539C41A8E377E00314E60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16539C51A8E377E00314E60 /* HairKingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HairKingTests.m; sourceTree = "<group>"; };
-		A16539DF1A8E3B7200314E60 /* APIHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIHeader.h; sourceTree = "<group>"; };
-		A16539E41A8E3EA600314E60 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		A16539E51A8E423700314E60 /* BootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BootViewController.h; sourceTree = "<group>"; };
-		A16539E61A8E423700314E60 /* BootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BootViewController.m; sourceTree = "<group>"; };
+		A1710AA31AA3107D00CD0637 /* HKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKRootViewController.h; sourceTree = "<group>"; };
+		A1710AA41AA3107D00CD0637 /* HKRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKRootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +93,12 @@
 		A16539A81A8E377E00314E60 /* HairKing */ = {
 			isa = PBXGroup;
 			children = (
+				A16539D91A8E3B4700314E60 /* Classes */,
+				A145EC821AA1957C004CCD78 /* HKDefines.h */,
 				A16539AD1A8E377E00314E60 /* AppDelegate.h */,
 				A16539AE1A8E377E00314E60 /* AppDelegate.m */,
-				A16539D91A8E3B4700314E60 /* Classes */,
 				A16539B61A8E377E00314E60 /* Images.xcassets */,
 				A16539A91A8E377E00314E60 /* Supporting Files */,
-				A16539E41A8E3EA600314E60 /* Header.h */,
 			);
 			path = HairKing;
 			sourceTree = "<group>";
@@ -136,7 +146,9 @@
 		A16539DA1A8E3B4700314E60 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				A16539DF1A8E3B7200314E60 /* APIHeader.h */,
+				A145EC831AA195A9004CCD78 /* HKAPIDefines.h */,
+				A145EC7B1AA19030004CCD78 /* HKAPI.h */,
+				A145EC7C1AA19030004CCD78 /* HKAPI.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -144,8 +156,8 @@
 		A16539DB1A8E3B4700314E60 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A16539E51A8E423700314E60 /* BootViewController.h */,
-				A16539E61A8E423700314E60 /* BootViewController.m */,
+				A1710AA31AA3107D00CD0637 /* HKRootViewController.h */,
+				A1710AA41AA3107D00CD0637 /* HKRootViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +165,11 @@
 		A16539DC1A8E3B4700314E60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A145EC881AA19CD4004CCD78 /* HKModel.h */,
+				A145EC891AA19CD4004CCD78 /* HKModel.m */,
+				A145EC841AA1963B004CCD78 /* HKArchivingDataModel.h */,
+				A145EC851AA1963B004CCD78 /* HKArchivingDataModel.m */,
+				A145EC871AA196B0004CCD78 /* HKModelDefines.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,9 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A145EC8A1AA19CD4004CCD78 /* HKModel.m in Sources */,
+				A1710AA51AA3107D00CD0637 /* HKRootViewController.m in Sources */,
 				A16539AF1A8E377E00314E60 /* AppDelegate.m in Sources */,
-				A16539E71A8E423700314E60 /* BootViewController.m in Sources */,
 				A16539AC1A8E377E00314E60 /* main.m in Sources */,
+				A145EC7D1AA19030004CCD78 /* HKAPI.m in Sources */,
+				A145EC861AA1963B004CCD78 /* HKArchivingDataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

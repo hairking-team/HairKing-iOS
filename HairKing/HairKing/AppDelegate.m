@@ -8,18 +8,19 @@
 
 #import "AppDelegate.h"
 
-#import "BootViewController.h"
+#import "HKRootViewController.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) UINavigationController *rootViewController;
 
 @end
 
 @implementation AppDelegate
 
+@synthesize rootViewController = _rootViewController;
+
 - (void)initialize {
-    if (!self.rootViewController) {
-        self.rootViewController = [self makeBootViewController];
-    }
     
     NSLog(@"app initialize");
     
@@ -31,13 +32,14 @@
 
 }
 
-- (UIViewController *) makeBootViewController {
-    UINavigationController *bootViewController = [[UINavigationController alloc] initWithRootViewController:[[BootViewController alloc] init]];
+- (UIViewController *) rootViewController {
+    if (!_rootViewController) {
+        _rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HKRootViewController alloc] init]];
+        // 隐藏导航栏
+        [_rootViewController.navigationBar setHidden:YES];
+    }
     
-    // 隐藏导航栏
-    [bootViewController.navigationBar setHidden:YES];
-    
-    return bootViewController;
+    return _rootViewController;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

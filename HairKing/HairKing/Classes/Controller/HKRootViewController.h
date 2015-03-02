@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BootViewController : UIViewController
+@interface HKRootViewController : UIViewController
 
 - (id)init;
 

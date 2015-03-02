@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Andy Lee. All rights reserved.
 //
 
-#import "BootViewController.h"
+#import "HKRootViewController.h"
 
-@implementation BootViewController
+@implementation HKRootViewController
 
 - (id)init
 {
