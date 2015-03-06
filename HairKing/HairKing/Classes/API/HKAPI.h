@@ -25,9 +25,9 @@
 
 @optional
 // 接口数据请求成功
-- (void)NODAPI:(HKAPI *)api didFinishDownloadingToData:(NSDictionary *)data;
+- (void)HKAPI:(HKAPI *)api didCompleteDownloadData:(NSDictionary *)data;
 
 // 接口请求失败
-- (void)NODAPI:(HKAPI *)api didCompleteWithErrorCode:(NSString *)errorCode errorMessage:(NSString *)errorMessage;
+- (void)HKAPI:(HKAPI *)api didCompleteWithError: (NSString *)errorMessage;
 
 @end

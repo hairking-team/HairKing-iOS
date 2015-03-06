@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HKRootViewController : UIViewController
+#import "ZBFlowView.h"
+#import "ZBWaterView.h"
 
-- (id)init;
+#import "HKHairListModel.h"
+
+
+@interface HKRootViewController : UIViewController<HKHairListModelDelegate, ZBWaterViewDatasource,ZBWaterViewDelegate>
+
+- (instancetype)init;
 
 @end

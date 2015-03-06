@@ -11,7 +11,8 @@
 
 #define kHKAPIDebug YES // 开启DEBUG状态
 
-#define kHKAPIUrl (@"http://www.faxingzhi.cn/")
+#define kHKAPIUrl (@"http://www.faxingzhi.cn")
+#define kHKAPIVersion (@"1.0")
 
 // 接口返回数据相关
 #define kHKAPIResultStatusKey @("result") // 返回值状态

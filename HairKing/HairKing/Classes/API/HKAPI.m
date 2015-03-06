@@ -89,14 +89,6 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    //    self.apiTask = [inProcessSession downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-    //        if (error) {
-    //            NSLog(@"error = %@",error.localizedDescription);
-    //        } else {
-    //            NSLog(@"%@", location);
-    //        }
-    //    }];
-    
     self.apiTask = [inProcessSession downloadTaskWithRequest:request];
     
     [self.apiTask resume];
@@ -111,7 +103,7 @@
 // 生成带token的请求地址
 - (NSURL *)makeRequestUrlByString:(NSString *)urlString withParams:(NSDictionary *)params withToken:(BOOL)useToken
 {
-    NSString *url = [NSString stringWithFormat:@"%@?path=%@", self.apiUrl, urlString];
+    NSString *url = [NSString stringWithFormat:@"%@/%@?version=%@", self.apiUrl, urlString, kHKAPIVersion];
     
     if (useToken) {
         [url stringByAppendingString:[NSString stringWithFormat:@"&token=%@", self.token]];
@@ -127,7 +119,7 @@
     }
     
     if (kHKAPIDebug) {
-        NSLog(@"NODAPI.m - requestUrl: %@", url);
+        NSLog(@"HKAPI.m - requestUrl: %@", url);
     }
     
     return [NSURL URLWithString:url];
@@ -172,34 +164,38 @@
                                        options:NSJSONReadingMutableContainers
                                        error:&jsonError];
     
+//    NSLog(@"HKAPI.m request data:%@", resultData);
     [self selectorDelegateMethodWithData:resultData];
 }
 
 - (void)selectorDelegateMethodWithData:(NSMutableDictionary *)requestData
 {
-    
+    //
     if (self.delegate && [self.delegate conformsToProtocol:@protocol(HKAPIDelegate)]) {
+
+        NSString *result = [requestData objectForKey:@"result"];
         
-//        NSString *status = [requestData objectForKey:kNODAPIRequestStatusKey];
-//        
-//        if ([status isEqualToString: kHKAPIRequestStatusSuccessValue]) { // 请求接口数据状态成功
-//            if ([self.delegate respondsToSelector:@selector(NODAPI:didFinishDownloadingToData:)]) {
-//                NSDictionary *data = [requestData objectForKey:kNODAPIRequestDataKey];
-//                [self.delegate NODAPI:self didFinishDownloadingToData:data];
-//            }
-//        } else if ([status isEqualToString:kNODAPIRequestStatusFailValue]) { // 请求接口数据状态失败
-//            
-//            NSString *errorCode = [requestData objectForKey:kNODAPIRequestErrorCodeKey];
-//            NSString *errorMessage = [requestData objectForKey:kNODAPIRequestErrorMessageKey];
-//            
-//            if ([self.delegate respondsToSelector:@selector(NODAPI:didCompleteWithErrorCode:errorMessage:)]) {
-//                [self.delegate NODAPI:self didCompleteWithErrorCode:errorCode errorMessage:errorMessage];
-//            }
-//        }
+        if ([result isEqualToString:@"1"]) {
+            // 判断是非委托didCompleteDownloadData方法
+            if ([self.delegate respondsToSelector:@selector(HKAPI:didCompleteDownloadData:)]) {
+                [self.delegate HKAPI:self didCompleteDownloadData:requestData];
+            }
+            
+        } else {
+            NSString *errorInfo = [requestData objectForKey:@"errorInfo"];
+            if (kHKAPIDebug) {
+                NSLog(@"HKAPI.m - error info:%@", errorInfo);
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(HKAPI:didCompleteWithError:)]) {
+                [self.delegate HKAPI:self didCompleteWithError:errorInfo];
+            }
+        }
     }
 }
 
 #pragma mark NSURLSessionDownloadDelegate
+
 // 下载成功
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
 {
@@ -211,7 +207,7 @@
     
     NSURL *destinationPath = [documentsDirectory URLByAppendingPathComponent:[location lastPathComponent]];
     NSError *error;
-    
+
     [fileManager removeItemAtURL:destinationPath error:NULL];
     BOOL success = [fileManager copyItemAtURL:location toURL:destinationPath error:&error];
     
@@ -227,10 +223,13 @@
     
 }
 
-//
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
-    
+    if (error) {
+        if (kHKAPIDebug) {
+            NSLog(@"HKAPI.m - URLSession Error:%@", error);
+        }
+    }
 }
 
 //

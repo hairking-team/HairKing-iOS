@@ -12,4 +12,6 @@
 #define IsiOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 ? YES : NO)
 #define IsiOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 ? YES : NO)
 
+#define SCREEN_SIZE [UIScreen mainScreen].bounds.size
+
 #endif
